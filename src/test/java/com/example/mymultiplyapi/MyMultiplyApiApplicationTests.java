@@ -1,4 +1,4 @@
-package com.example.MyMultiplyAPI;
+package com.example.mymultiplyapi;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

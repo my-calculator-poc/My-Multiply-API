@@ -1,4 +1,4 @@
-package com.example.MyMultiplyAPI;
+package com.example.mymultiplyapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
