@@ -1,0 +1,55 @@
+swagger: "2.0"
+info:
+  description: ""
+  version: "1.0.0"
+  title: "SCC Multiply"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "petstore.swagger.io"
+basePath: "/v2"
+schemes:
+- "https"
+- "http"
+paths:
+  /multiply:
+    post:
+      tags:
+      - "multiply"
+      summary: "Sum 2 numbers"
+      description: ""
+      operationId: "multiplyNumbers"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "The 2 numbers to multiply"
+        required: true
+        schema:
+          $ref: "#/definitions/MultiplyRequest"
+      responses:
+        200:
+          description: "{result: 3}"
+
+definitions:
+
+  MultiplyRequest:
+    type: "object"
+    required:
+    - "number1"
+    - "number2"
+    properties:
+      number1:
+        type: "integer"
+        format: "int64" 
+        example: "1"
+      number2:
+        type: "integer"
+        format: "int64"        
+        example: "2"
