@@ -35,6 +35,22 @@
 			<artifactId>spring-cloud-starter-contract-verifier</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!--PACT-->
+
+		<!-- https://mvnrepository.com/artifact/au.com.dius/pact-jvm-provider-junit -->
+		<dependency>
+			<groupId>au.com.dius</groupId>
+			<artifactId>pact-jvm-provider-junit_2.12</artifactId>
+			<version>3.6.12</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/au.com.dius/pact-jvm-provider-maven -->
+		<dependency>
+			<groupId>au.com.dius</groupId>
+			<artifactId>pact-jvm-provider-maven_2.12</artifactId>
+			<version>3.6.12</version>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
@@ -61,6 +77,19 @@
 				<extensions>true</extensions>
 				<configuration>
 					<baseClassForTests>com.example.MultiplyBase</baseClassForTests>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>au.com.dius</groupId>
+				<artifactId>pact-jvm-provider-maven_2.12</artifactId>
+				<configuration>
+					<serviceProviders>
+						<serviceProvider>
+							<name>test_provider</name>
+							<stateChangeUrl>http://localhost:8080/tasks/pactStateChange</stateChangeUrl>
+							<pactBrokerUrl>http://localhost:9292/</pactBrokerUrl>
+						</serviceProvider>
+					</serviceProviders>
 				</configuration>
 			</plugin>
 		</plugins>
